@@ -347,82 +347,122 @@
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">RESPECT</span>
                                 <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">COMPANIONSHIP</span>
-                                <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 flex flex-col justify-between relative overflow-hidden group">
-    <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-500 to-orange-500"></div>
-    <div>
-        <div class="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-md shadow-orange-500/20">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-        </div>
-        <h3 class="font-heading font-bold text-xl text-slate-900 mb-1">Food Support</h3>
-        <p class="text-xs font-bold text-orange-600 uppercase tracking-wider mb-4">HOSPITAL PATIENTS & HOMELESS</p>
-        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            Providing emergency meal packs, nutritious sustenance, and daily ration support to destitute individuals, homeless families, and attendants of patients outside major hospitals.
-        </p>
-    </div>
-    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-100">
-        <span class="text-xs font-medium px-3 py-1 bg-orange-50 text-orange-700 rounded-full">NUTRITION</span>
-        <span class="text-xs font-medium px-3 py-1 bg-orange-50 text-orange-700 rounded-full">DIGUNITY</span>
-        <span class="text-xs font-medium px-3 py-1 bg-orange-50 text-orange-700 rounded-full">RELIEF</span>
-    </div>
-</div>
-
-    <div>
-        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">EMAIL ID</label>
-        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="your.email@domain.com">
-    </div>
-
-    <div>
-        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SUPPORT TYPE</label>
-        <select name="support_type" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
-            <option value="Financial">Financial Support</option>
-            <option value="In-Kind Rations">In-Kind Rations & Supplies</option>
-            <option value="Volunteer">Volunteer With Us</option>
-        </select>
-    </div>
-
-    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">
-        Submit Pledge / Request Contact
-    </button>
-</form>
-                            <div>
-                                <h4 class="font-semibold text-white">Volunteer With Us</h4>
-                                <p class="text-xs text-slate-400">Join our food distribution drives or assist bedridden senior citizens with care teams.</p>
+                                <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">DIGNITY</span>
                             </div>
                         </div>
                     </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openSupportModal('Senior Citizens Support')" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold rounded-xl text-sm transition-colors border border-emerald-200">
+                            Support Senior Kits
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Fast Donation / Action Form -->
-                <div class="bg-white text-slate-800 p-8 rounded-3xl shadow-2xl">
-                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-2">Be a Beacon of Hope</h3>
-                    <p class="text-sm text-slate-600 mb-6">Pledge your support today. Select an initiative to contribute.</p>
-
-                    <form id="hero-support-form" onsubmit="handleQuickSupport(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Select Initiative</label>
-                            <select id="support-cause" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
-                                <option value="Cancer Patients Ration & Support">Cancer Patients Ration & Care</option>
-                                <option value="Senior Citizens & Bedridden Care">Senior Citizens & Bedridden Care</option>
-                                <option value="Single Mother Child Education">Single Mother Child Education</option>
-                                <option value="Hospital & Street Food Support">Hospital & Street Food Relief</option>
-                                <option value="General Support Fund">General Foundation Support</option>
-                            </select>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
-                                <input type="text" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
+                <!-- Pillar 3: Education Support -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1">
+                    <div>
+                        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white text-center">
+                            <div class="w-14 h-14 mx-auto bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl mb-3">
+                                <i class="fa-solid fa-graduation-cap text-white"></i>
                             </div>
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
-                                <input type="tel" required placeholder="Phone / Mobile" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
+                            <h3 class="font-heading font-bold text-xl">Education Support</h3>
+                            <p class="text-blue-100 text-xs font-medium uppercase tracking-wider mt-1">For Children of Single Mothers</p>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Assisting courageous single mothers by sponsoring schooling fees, books, uniforms, and essential needs for their children to build a brighter future.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-md">EDUCATE</span>
+                                <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-md">EMPOWER</span>
+                                <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-md">BRIGHTER FUTURES</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openSupportModal('Education Support')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold rounded-xl text-sm transition-colors border border-blue-200">
+                            Support Child Schooling
+                        </button>
+                    </div>
+                </div>
 
+                <!-- Pillar 4: Food Support -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1">
+                    <div>
+                        <div class="bg-gradient-to-r from-amber-500 to-orange-600 p-6 text-white text-center">
+                            <div class="w-14 h-14 mx-auto bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl mb-3">
+                                <i class="fa-solid fa-bowl-food text-white"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl">Food Support</h3>
+                            <p class="text-amber-100 text-xs font-medium uppercase tracking-wider mt-1">Hospital Patients & Homeless</p>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Providing emergency meal packs, nutritious sustenance, and daily ration support to destitute individuals, homeless families, and attendants of patients outside major hospitals.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-md">NUTRITION</span>
+                                <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-md">DIGNITY</span>
+                                <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-2.5 py-1 rounded-md">RELIEF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openSupportModal('Food Support')" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-700 font-semibold rounded-xl text-sm transition-colors border border-amber-200">
+                            Support Food Relief
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Fast Donation / Action Form (Be a Beacon of Hope Form) -->
+            <div class="mt-16 max-w-xl mx-auto bg-white text-slate-800 p-8 rounded-3xl shadow-2xl border border-slate-100">
+                <h3 class="font-heading font-bold text-2xl text-slate-900 mb-2">Be a Beacon of Hope</h3>
+                <p class="text-sm text-slate-600 mb-6">Pledge your support today. Select an initiative to contribute.</p>
+
+                <form action="https://formspree.io/f/xyeebdpw" method="POST" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SELECT INITIATIVE</label>
+                        <select name="initiative" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
+                            <option value="Cancer Patients Ration & Care">Cancer Patients Ration & Care</option>
+                            <option value="Bedridden Senior Care Kits">Bedridden Senior Care Kits</option>
+                            <option value="Child Education & Stationery">Child Education & Stationery</option>
+                            <option value="Food Support - Hospital Patients & Homeless">Food Support - Hospital Patients & Homeless</option>
+                            <option value="General Support">General Support</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email ID</label>
-                            <input type="email" required placeholder="your.email@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">YOUR NAME</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="Full Name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">PHONE NUMBER</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="Phone / Mobile">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">EMAIL ID</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="your.email@domain.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SUPPORT TYPE</label>
+                        <select name="support_type" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
+                            <option value="Financial">Financial Support</option>
+                            <option value="In-Kind Rations">In-Kind Rations & Supplies</option>
+                            <option value="Volunteer">Volunteer With Us</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">
+                        Submit Pledge / Request Contact
+                    </button>
+                </form>
+            </div>
                         </div>
 
                         <div>
