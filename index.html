@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Choice Healthcare Services Foundation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#1E40AF',
+                            lightBlue: '#3B82F6',
+                            teal: '#0D9488',
+                            green: '#16A34A',
+                            pink: '#E11D48',
+                            orange: '#EA580C',
+                            dark: '#0F172A',
+                            softBg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #1E40AF 0%, #0D9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(239, 246, 255, 0.95) 0%, rgba(240, 253, 250, 0.9) 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-blue text-white text-xs sm:text-sm py-2 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-heart text-rose-400"></i> <strong class="font-semibold">Motto:</strong> Every Life Matters | Every Person Deserves Care</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:info@firstchoicefoundation.org" class="hover:text-blue-200 transition-colors flex items-center gap-1">
+                    <i class="fa-solid fa-envelope"></i> info@firstchoicefoundation.org
+                </a>
+                <span class="text-blue-300">|</span>
+                <span class="flex items-center gap-1"><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo & Title -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="block font-heading font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900 leading-none">
+                            FIRST CHOICE
+                        </span>
+                        <span class="block text-xs font-semibold tracking-wider text-blue-600 uppercase mt-0.5">
+                            Healthcare Services Foundation
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">About Us</a>
+                    <a href="#initiatives" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Our Initiatives</a>
+                    <a href="#impact" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Why We Serve</a>
+                    <a href="#contact" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="openDonateModal()" class="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-rose-300"></i> Donate / Support
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Home</a>
+            <a href="#about" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">About Us</a>
+            <a href="#initiatives" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Our Initiatives</a>
+            <a href="#impact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Why We Serve</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Contact</a>
+            <button onclick="openDonateModal()" class="w-full mt-2 bg-blue-600 text-white font-semibold py-3 rounded-xl shadow">
+                <i class="fa-solid fa-heart text-rose-300"></i> Donate / Support Now
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden hero-gradient py-16 lg:py-24 border-b border-slate-200/60">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-300/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 border border-blue-200 text-blue-800 text-xs sm:text-sm font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Caring • Supporting • Serving Humanity
+                    </div>
+
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-slate-900 leading-[1.15]">
+                        Together for a <br class="hidden sm:inline" />
+                        <span class="gradient-text">Kinder Tomorrow</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-600 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Dedicated to providing comprehensive healthcare support, senior care, nutrition, and child education to vulnerable communities. Because <strong>every life matters</strong> and <strong>every person deserves care</strong>.
+                    </p>
+
+                    <!-- Pillar Badges -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 text-xs sm:text-sm">
+                        <span class="px-3 py-1.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-ribbon text-rose-500"></i> Cancer Support
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-wheelchair text-emerald-600"></i> Senior Care
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-graduation-cap text-blue-600"></i> Education Support
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-bowl-food text-amber-600"></i> Food Relief
+                        </span>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#initiatives" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition-all text-center">
+                            Explore Our Initiatives
+                        </a>
+                        <button onclick="openDonateModal()" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-blue-700 font-semibold px-8 py-3.5 rounded-xl border border-blue-200 shadow-sm transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-heart text-rose-500"></i> Make a Difference Today
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Banner Card Showcase -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative Backdrop Ring -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 via-teal-400 to-rose-400 rounded-3xl blur opacity-30"></div>
+                        
+                        <div class="relative bg-white rounded-3xl p-6 sm:p-8 card-shadow border border-slate-100">
+                            <!-- Header inside card -->
+                            <div class="text-center pb-6 border-b border-slate-100">
+                                <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-blue-50 border-2 border-blue-100 flex items-center justify-center text-blue-600 text-3xl">
+                                    <i class="fa-solid fa-hands-holding-child"></i>
+                                </div>
+                                <h2 class="font-heading font-bold text-2xl text-slate-800">Our Core Commitment</h2>
+                                <p class="text-slate-500 text-sm mt-1">First Choice Healthcare Services Foundation</p>
+                            </div>
+
+                            <!-- Highlights List -->
+                            <div class="py-6 space-y-4">
+                                <div class="flex items-start gap-3.5">
+                                    <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-shield-heart text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-slate-800">Cancer Care & Ration Support</h3>
+                                        <p class="text-xs text-slate-500">Providing essential nutrition and care management.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3.5">
+                                    <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-user-nurse text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-slate-800">Bedridden & Elderly Support</h3>
+                                        <p class="text-xs text-slate-500">Dignity, assistance & medical assistance for seniors.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3.5">
+                                    <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-child-reaching text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-slate-800">Single Mother's Child Schooling</h3>
+                                        <p class="text-xs text-slate-500">Empowering children with essential education supplies.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3.5">
+                                    <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-utensils text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-slate-800">Hospital & Street Food Support</h3>
+                                        <p class="text-xs text-slate-500">Ensuring zero hunger for patients & families in need.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-100 text-center">
+                                <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">FOUNDATION MOTTO</span>
+                                <p class="text-sm font-bold text-slate-700 mt-1">EVERY LIFE MATTERS | EVERY PERSON DESERVES CARE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center space-y-4">
+                <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Who We Are</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900">Serving Humanity with Compassion & Respect</h2>
+                <p class="text-slate-600 leading-relaxed text-base sm:text-lg">
+                    <strong>First Choice Healthcare Services Foundation</strong> is a non-profit organization dedicated to serving the underprivileged, destitute patients, elderly individuals, and vulnerable children. We bridge the gap between critical resources and those in desperate need of medical, nutritional, and educational aid.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-blue-50/50 transition-colors">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-800 mb-2">Our Vision</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">A compassionate world where health, nutrition, and dignity are accessible to every individual regardless of their economic standing.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-teal-50/50 transition-colors">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-teal-600 text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-800 mb-2">Our Mission</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Providing daily essential food supplies, specialized cancer ration kits, bedridden senior care, and educational funding for single mothers' children.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-rose-50/50 transition-colors">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-rose-600 text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-800 mb-2">Our Values</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Integrity, unconditional empathy, dignity for all, and absolute transparency in every contribution and relief effort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Initiatives Section (The 4 Pillars from Banner) -->
+    <section id="initiatives" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Our Core Pillars</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mt-2">Dedicated Service Programs</h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">Discover the four key healthcare and social support initiatives established by our foundation.</p>
+            </div>
+
+            <!-- 4 Grid Pillars -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Pillar 1: Cancer Patients Support -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1">
+                    <div>
+                        <!-- Header Banner -->
+                        <div class="bg-gradient-to-r from-rose-500 to-pink-600 p-6 text-white text-center relative">
+                            <div class="w-14 h-14 mx-auto bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl mb-3">
+                                <i class="fa-solid fa-ribbon text-white"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl">Cancer Patients</h3>
+                            <p class="text-rose-100 text-xs font-medium uppercase tracking-wider mt-1">Ration & Care Support</p>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Providing specialized high-nutrition ration kits, medical navigation assistance, and financial care to underprivileged cancer patients fighting tough treatments.
+                            </p>
+                            <!-- Mottos / Tags -->
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-rose-50 text-rose-700 text-xs font-semibold px-2.5 py-1 rounded-md">HOPE</span>
+                                <span class="bg-rose-50 text-rose-700 text-xs font-semibold px-2.5 py-1 rounded-md">CARE</span>
+                                <span class="bg-rose-50 text-rose-700 text-xs font-semibold px-2.5 py-1 rounded-md">BETTER TOMORROWS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openSupportModal('Cancer Patients Support')" class="w-full py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold rounded-xl text-sm transition-colors border border-rose-200">
+                            Support Patient Kits
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Senior Citizens -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1">
+                    <div>
+                        <div class="bg-gradient-to-r from-emerald-600 to-teal-600 p-6 text-white text-center">
+                            <div class="w-14 h-14 mx-auto bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl mb-3">
+                                <i class="fa-solid fa-person-cane text-white"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl">Senior Citizens</h3>
+                            <p class="text-emerald-100 text-xs font-medium uppercase tracking-wider mt-1">Care & Support (Including Bedridden Care)</p>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Ensuring complete dignity, medical relief, hygiene kits, and companionship for abandoned, destitute, or bedridden elderly members of our society.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">RESPECT</span>
+                                <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">COMPANIONSHIP</span>
+                                <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">DIGNITY</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openSupportModal('Senior Citizens Care')" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold rounded-xl text-sm transition-colors border border-emerald-200">
+                            Adopt Senior Care
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Education Support -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1">
+                    <div>
+                        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white text-center">
+                            <div class="w-14 h-14 mx-auto bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl mb-3">
+                                <i class="fa-solid fa-graduation-cap text-white"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl">Education Support</h3>
+                            <p class="text-blue-100 text-xs font-medium uppercase tracking-wider mt-1">For Children of Single Mothers</p>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Assisting courageous single mothers by sponsoring schooling fees, books, uniforms, and essential needs for their children to build a brighter future.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-md">EDUCATE</span>
+                                <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-md">EMPOWER</span>
+                                <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-md">BRIGHTER FUTURES</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openSupportModal('Child Education Support')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold rounded-xl text-sm transition-colors border border-blue-200">
+                            Sponsor a Child
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Food Support -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1">
+                    <div>
+                        <div class="bg-gradient-to-r from-amber-500 to-orange-600 p-6 text-white text-center">
+                            <div class="w-14 h-14 mx-auto bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl mb-3">
+                                <i class="fa-solid fa-bowl-rice text-white"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl">Food Support</h3>
+                            <p class="text-amber-100 text-xs font-medium uppercase tracking-wider mt-1">Hospital Patients & Homeless</p>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                                Distribution of freshly cooked, hygienic, and nourishing meals to hospital patient attendants and individuals living on the streets.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-amber-50 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-md">NOURISH</span>
+                                <span class="bg-amber-50 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-md">SUPPORT</span>
+                                <span class="bg-amber-50 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-md">NO ONE SLEEPS HUNGRY</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openSupportModal('Food Relief Program')" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-800 font-semibold rounded-xl text-sm transition-colors border border-amber-200">
+                            Sponsor Meals
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Impact & Volunteer Section -->
+    <section id="impact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-teal-400 font-semibold tracking-wider text-sm uppercase">Join Hands With Us</span>
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl text-white mt-2 leading-tight">
+                        How Your Small Contribution Creates a Huge Impact
+                    </h2>
+                    <p class="text-slate-300 mt-4 leading-relaxed">
+                        Every dollar or hour you contribute helps us stretch our wings to comfort an ailing cancer patient, nourish a hungry family outside a hospital ward, or put a child back into school.
+                    </p>
+
+                    <!-- Interactive Tabs/Accordion for Ways to Help -->
+                    <div class="mt-8 space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Direct Financial Support</h4>
+                                <p class="text-xs text-slate-400">100% transparent distribution towards ration kits, school fees, and medical care.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-people-carry-box"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">In-Kind Ration & Supplies Donation</h4>
+                                <p class="text-xs text-slate-400">Donate dry rations, adult diapers, wheelchairs, or educational stationery directly.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-hands-helping"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Volunteer With Us</h4>
+                                <p class="text-xs text-slate-400">Join our food distribution drives or assist bedridden senior citizens with care teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fast Donation / Action Form -->
+                <div class="bg-white text-slate-800 p-8 rounded-3xl shadow-2xl">
+                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-2">Be a Beacon of Hope</h3>
+                    <p class="text-sm text-slate-600 mb-6">Pledge your support today. Select an initiative to contribute.</p>
+
+                    <form id="hero-support-form" onsubmit="handleQuickSupport(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Select Initiative</label>
+                            <select id="support-cause" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
+                                <option value="Cancer Patients Ration & Support">Cancer Patients Ration & Care</option>
+                                <option value="Senior Citizens & Bedridden Care">Senior Citizens & Bedridden Care</option>
+                                <option value="Single Mother Child Education">Single Mother Child Education</option>
+                                <option value="Hospital & Street Food Support">Hospital & Street Food Relief</option>
+                                <option value="General Support Fund">General Foundation Support</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
+                                <input type="text" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
+                                <input type="tel" required placeholder="Phone / Mobile" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email ID</label>
+                            <input type="email" required placeholder="your.email@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Support Type</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <label class="border rounded-xl p-2.5 text-center cursor-pointer hover:bg-blue-50 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50 text-xs font-semibold">
+                                    <input type="radio" name="support_type" value="Financial" checked class="hidden"> Financial
+                                </label>
+                                <label class="border rounded-xl p-2.5 text-center cursor-pointer hover:bg-blue-50 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50 text-xs font-semibold">
+                                    <input type="radio" name="support_type" value="Ration/Items" class="hidden"> In-Kind Rations
+                                </label>
+                                <label class="border rounded-xl p-2.5 text-center cursor-pointer hover:bg-blue-50 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50 text-xs font-semibold">
+                                    <input type="radio" name="support_type" value="Volunteer" class="hidden"> Volunteer
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all mt-4">
+                            Submit Pledge / Request Contact
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Get In Touch</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mt-2">Reach Out To Us</h2>
+                <p class="text-slate-600 mt-2 text-base">Have questions about our initiatives or need healthcare support for someone in need?</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0 mt-1">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-lg text-slate-800">Foundation Office</h4>
+                            <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                                First Choice Healthcare Services Foundation<br>
+                                Ground Floor, Lishanil Villa, Opposite Main Road<br>
+                                Healthcare Service Division, India
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl shrink-0 mt-1">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-lg text-slate-800">Email Addresses</h4>
+                            <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                                <strong>General Inquiry:</strong> info@firstchoicefoundation.org<br>
+                                <strong>Donations & Support:</strong> support@firstchoicefoundation.org
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl shrink-0 mt-1">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-lg text-slate-800">Helpline / Contact</h4>
+                            <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                                <strong>Support Line:</strong> +91 98765 43210<br>
+                                <strong>Emergency Support:</strong> +91 91234 56789
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100">
+                        <h5 class="text-sm font-semibold text-slate-800 mb-3">Connect With Our Community</h5>
+                        <div class="flex space-x-3">
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-600 flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-rose-600 hover:text-white text-slate-600 flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-green-600 hover:text-white text-slate-600 flex items-center justify-center transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-400 hover:text-white text-slate-600 flex items-center justify-center transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Contact Form -->
+                <div class="lg:col-span-7 bg-slate-50 p-8 rounded-3xl border border-slate-200">
+                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-6">Send Us a Message</h3>
+                    
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Full Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white" placeholder="+91 Mobile number">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email ID</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white" placeholder="john@example.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Subject</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white" placeholder="Seeking Medical Assistance / Volunteer Request">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Message</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white" placeholder="How can we help you or how would you like to partner with us?"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-xl text-white">First Choice Healthcare Services Foundation</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-md">
+                        Caring • Supporting • Serving Humanity. Dedicated to bringing hope, nutrition, care, and dignity to cancer patients, senior citizens, destitute mothers, and hospital attendants.
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        <strong>Motto:</strong> EVERY LIFE MATTERS | EVERY PERSON DESERVES CARE
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-blue-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-blue-400 transition-colors">About Us</a></li>
+                        <li><a href="#initiatives" class="hover:text-blue-400 transition-colors">Our Initiatives</a></li>
+                        <li><a href="#impact" class="hover:text-blue-400 transition-colors">Get Involved</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Our Support Programs</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#initiatives" class="hover:text-blue-400 transition-colors">Cancer Patient Ration</a></li>
+                        <li><a href="#initiatives" class="hover:text-blue-400 transition-colors">Bedridden Elderly Care</a></li>
+                        <li><a href="#initiatives" class="hover:text-blue-400 transition-colors">Single Mother Schooling</a></li>
+                        <li><a href="#initiatives" class="hover:text-blue-400 transition-colors">Street & Hospital Food Support</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-xs text-center sm:flex sm:justify-between sm:text-left">
+                <p>&copy; 2026 First Choice Healthcare Services Foundation. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0 text-slate-500">Together for a Kinder Tomorrow ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Donation / Support Modal -->
+    <div id="donate-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-fade-in max-h-[90vh] overflow-y-auto">
+            <button onclick="closeDonateModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                &times;
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 mx-auto flex items-center justify-center text-2xl mb-2">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 class="font-heading font-bold text-2xl text-slate-800" id="modal-title">Support Our Foundation</h3>
+                <p class="text-xs text-slate-500 mt-1">First Choice Healthcare Services Foundation</p>
+            </div>
+
+            <!-- Custom Notification Banner inside Modal -->
+            <div id="modal-alert" class="hidden mb-4 p-3 bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs rounded-xl"></div>
+
+            <form id="donate-modal-form" onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Target Initiative</label>
+                    <input type="text" id="modal-initiative-input" readonly class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-100 text-slate-700 font-semibold text-sm">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
+                        <input type="text" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Name">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Mobile No.</label>
+                        <input type="tel" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Mobile">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email ID</label>
+                    <input type="email" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none" placeholder="your.email@gmail.com">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Support Contribution Type</label>
+                    <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option>Financial Contribution (One-Time / Monthly)</option>
+                        <option>Dry Ration / Food Supply Sponsorship</option>
+                        <option>Medical Supplies / Diapers / Wheelchairs</option>
+                        <option>Child Schooling Fee Sponsoring</option>
+                        <option>Volunteer Service</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Note / Message (Optional)</label>
+                    <textarea rows="2" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Any specific instructions..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 rounded-xl shadow-md transition-colors mt-2">
+                    Confirm Pledge & Get Direct Bank/UPI Info
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast Element -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl z-50 hidden flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+        <div>
+            <p class="font-semibold text-sm" id="toast-title">Thank You!</p>
+            <p class="text-xs text-slate-300" id="toast-desc">Your submission was received.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal Handles
+        const modal = document.getElementById('donate-modal');
+        const modalInput = document.getElementById('modal-initiative-input');
+        const modalAlert = document.getElementById('modal-alert');
+
+        function openDonateModal() {
+            modalInput.value = "General Foundation Support";
+            modalAlert.classList.add('hidden');
+            modal.classList.remove('hidden');
+        }
+
+        function openSupportModal(initiativeName) {
+            modalInput.value = initiativeName;
+            modalAlert.classList.add('hidden');
+            modal.classList.remove('hidden');
+        }
+
+        function closeDonateModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Handle Quick Support Form (Impact section)
+        function handleQuickSupport(e) {
+            e.preventDefault();
+            showToast("Support Request Received!", "Our representative will contact you shortly via Email/Phone.");
+            e.target.reset();
+        }
+
+        // Handle Modal Submit
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            modalAlert.innerHTML = "<strong>Pledge Recorded Successfully!</strong><br>Our team will reach out with tax-deductible payment/receipt guidelines or collection details.";
+            modalAlert.classList.remove('hidden');
+            setTimeout(() => {
+                closeDonateModal();
+                showToast("Thank you for your generosity!", "We have sent confirmation details to your email.");
+                e.target.reset();
+            }, 2500);
+        }
+
+        // Handle Contact Form Submit
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast("Message Sent!", "Thank you for writing to First Choice Foundation.");
+            e.target.reset();
+        }
+
+        // Toast Helper
+        function showToast(title, description) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-desc').innerText = description;
+
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
