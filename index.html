@@ -94,6 +94,7 @@
                     <a href="#about" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">About Us</a>
                     <a href="#initiatives" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Our Initiatives</a>
                     <a href="#impact" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Why We Serve</a>
+                    <a href="#gallery" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Gallery</a>
                     <a href="#contact" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Contact</a>
                 </nav>
 
@@ -119,6 +120,7 @@
             <a href="#about" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">About Us</a>
             <a href="#initiatives" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Our Initiatives</a>
             <a href="#impact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Why We Serve</a>
+            <a href="#gallery" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Gallery</a>
             <a href="#contact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Contact</a>
             <button onclick="openDonateModal()" class="w-full mt-2 bg-blue-600 text-white font-semibold py-3 rounded-xl shadow">
                 <i class="fa-solid fa-heart text-rose-300"></i> Donate / Support Now
@@ -507,8 +509,51 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Our Work In Action</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mt-2">Foundation Service Gallery</h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">Photos and videos documenting our healthcare, senior care, and food distribution drives.</p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Photo Card 1 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white aspect-video border border-slate-100">
+                    <img src="gallery-1.jpg" alt="Foundation Activity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e40af/ffffff?text=Food+Relief+Drive'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                        <p class="font-bold text-sm">Food Relief Drive</p>
+                        <p class="text-xs text-slate-200">Hospital & Street Food Support</p>
+                    </div>
+                </div>
+
+                <!-- Photo Card 2 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white aspect-video border border-slate-100">
+                    <img src="gallery-2.jpg" alt="Foundation Activity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/0d9488/ffffff?text=Senior+Care+Kits'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                        <p class="font-bold text-sm">Senior Care Kit Distribution</p>
+                        <p class="text-xs text-slate-200">Eldercare & Medical Relief</p>
+                    </div>
+                </div>
+
+                <!-- Photo Card 3 -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white aspect-video border border-slate-100">
+                    <img src="gallery-3.jpg" alt="Foundation Activity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/e11d48/ffffff?text=Cancer+Ration+Support'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                        <p class="font-bold text-sm">Cancer Patient Ration Drive</p>
+                        <p class="text-xs text-slate-200">Nutrition & Care Support</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Contact & Location Section -->
-    <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+    <section id="contact" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Get In Touch</span>
