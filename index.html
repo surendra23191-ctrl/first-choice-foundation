@@ -499,7 +499,7 @@
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">Section 8 Company Registration under Ministry of Corporate Affairs (CIN: U88900MH2026NPL476877).</p>
                     </div>
                     <div>
-                        <button onclick="openPdfModal('docs/incorporation-certificate.pdf', 'Certificate of Incorporation')" class="inline-flex items-center justify-center w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+                        <button onclick="openPdfModal('docs/incorporation-certificate.png', 'Certificate of Incorporation')" class="inline-flex items-center justify-center w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
                             <i class="fa-solid fa-eye mr-2"></i> View Document
                         </button>
                     </div>
@@ -515,7 +515,7 @@
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">Official Permanent Account Number and tax exemption regulatory compliance records.</p>
                     </div>
                     <div>
-                        <button onclick="openPdfModal('docs/pan-card.pdf', 'PAN & Tax Compliance')" class="inline-flex items-center justify-center w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+                        <button onclick="openPdfModal('docs/pan-card.png', 'PAN & Tax Compliance')" class="inline-flex items-center justify-center w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
                             <i class="fa-solid fa-eye mr-2"></i> View Document
                         </button>
                     </div>
@@ -689,7 +689,7 @@
         </div>
     </div>
 
-    <!-- PDF Viewer Modal -->
+    <!-- Secure Image Document Viewer Modal -->
     <div id="pdf-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm hidden p-4">
         <div class="bg-white rounded-3xl max-w-4xl w-full h-[85vh] p-4 sm:p-6 relative shadow-2xl flex flex-col">
             <div class="flex justify-between items-center mb-4">
@@ -698,8 +698,10 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div class="flex-1 w-full h-full bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
-                <iframe id="pdf-iframe" src="" class="w-full h-full border-0"></iframe>
+            <!-- Secure container with right-click protection overlay -->
+            <div class="flex-1 w-full h-full bg-slate-100 rounded-2xl overflow-auto relative border border-slate-200 flex items-center justify-center select-none" oncontextmenu="return false;">
+                <img id="modal-img-element" src="" alt="Secure Document" class="max-h-full max-w-full object-contain pointer-events-none select-none">
+                <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
             </div>
         </div>
     </div>
@@ -717,16 +719,16 @@
             }
         });
 
-        // PDF Modal Controls
-        function openPdfModal(pdfUrl, title) {
+        // Secure Image Modal Controls
+        function openPdfModal(imgUrl, title) {
             document.getElementById('pdf-modal-title').innerText = title;
-            document.getElementById('pdf-iframe').src = pdfUrl + '#toolbar=0&navpanes=0';
+            document.getElementById('modal-img-element').src = imgUrl;
             document.getElementById('pdf-modal').classList.remove('hidden');
         }
 
         function closePdfModal() {
             document.getElementById('pdf-modal').classList.add('hidden');
-            document.getElementById('pdf-iframe').src = '';
+            document.getElementById('modal-img-element').src = '';
         }
 
         // Mobile Menu Toggle
