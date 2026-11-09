@@ -51,12 +51,6 @@
         .card-shadow:hover {
             box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
         }
-        /* Dropdown Hover Logic */
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
@@ -99,11 +93,11 @@
                     <a href="#home" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Home</a>
                     
                     <!-- About Us with Dropdown -->
-                    <div class="relative dropdown py-4">
-                        <a href="#about" class="text-slate-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1">
+                    <div class="relative py-4 group" id="about-dropdown">
+                        <button id="dropdown-btn" class="text-slate-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1 focus:outline-none">
                             About Us <i class="fa-solid fa-chevron-down text-xs"></i>
-                        </a>
-                        <div class="dropdown-menu absolute top-full left-0 w-52 bg-white rounded-2xl shadow-xl border border-slate-100 py-3 opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50">
+                        </button>
+                        <div id="dropdown-menu" class="absolute top-full left-0 w-52 bg-white rounded-2xl shadow-xl border border-slate-100 py-3 hidden group-hover:block z-50">
                             <a href="#about" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 font-medium">About Organization</a>
                             <a href="#documents" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 font-medium">Documents</a>
                         </div>
@@ -696,6 +690,22 @@
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Dropdown Click Handler for robust behavior (both hover & click)
+        const dropdownBtn = document.getElementById('dropdown-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        dropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', () => {
+            if (!dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.add('hidden');
+            }
         });
 
         // Modal Controls
