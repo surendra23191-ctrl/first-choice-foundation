@@ -499,9 +499,9 @@
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">Section 8 Company Registration under Ministry of Corporate Affairs (CIN: U88900MH2026NPL476877).</p>
                     </div>
                     <div>
-                        <a href="docs/incorporation-certificate.pdf" target="_blank" class="inline-flex items-center justify-center w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+                        <button onclick="openPdfModal('docs/incorporation-certificate.pdf', 'Certificate of Incorporation')" class="inline-flex items-center justify-center w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
                             <i class="fa-solid fa-eye mr-2"></i> View Document
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -515,9 +515,9 @@
                         <p class="text-slate-600 text-sm leading-relaxed mb-6">Official Permanent Account Number and tax exemption regulatory compliance records.</p>
                     </div>
                     <div>
-                        <a href="docs/pan-card.pdf" target="_blank" class="inline-flex items-center justify-center w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+                        <button onclick="openPdfModal('docs/pan-card.pdf', 'PAN & Tax Compliance')" class="inline-flex items-center justify-center w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
                             <i class="fa-solid fa-eye mr-2"></i> View Document
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -689,6 +689,21 @@
         </div>
     </div>
 
+    <!-- PDF Viewer Modal -->
+    <div id="pdf-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full h-[85vh] p-4 sm:p-6 relative shadow-2xl flex flex-col">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="pdf-modal-title" class="font-heading font-bold text-xl text-slate-900">Document Viewer</h3>
+                <button onclick="closePdfModal()" class="text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="flex-1 w-full h-full bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
+                <iframe id="pdf-iframe" src="" class="w-full h-full border-0"></iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Disable right-click context menu
         document.addEventListener('contextmenu', function(e) {
@@ -701,6 +716,18 @@
                 e.preventDefault();
             }
         });
+
+        // PDF Modal Controls
+        function openPdfModal(pdfUrl, title) {
+            document.getElementById('pdf-modal-title').innerText = title;
+            document.getElementById('pdf-iframe').src = pdfUrl + '#toolbar=0&navpanes=0';
+            document.getElementById('pdf-modal').classList.remove('hidden');
+        }
+
+        function closePdfModal() {
+            document.getElementById('pdf-modal').classList.add('hidden');
+            document.getElementById('pdf-iframe').src = '';
+        }
 
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -748,6 +775,10 @@
             const modal = document.getElementById('support-modal');
             if (event.target == modal) {
                 closeModals();
+            }
+            const pdfModal = document.getElementById('pdf-modal');
+            if (event.target == pdfModal) {
+                closePdfModal();
             }
         }
     </script>
