@@ -51,6 +51,12 @@
         .card-shadow:hover {
             box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
         }
+        /* Dropdown Hover Logic */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
@@ -91,7 +97,18 @@
                 <!-- Desktop Menu -->
                 <nav class="hidden lg:flex items-center space-x-8">
                     <a href="#home" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="#about" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">About Us</a>
+                    
+                    <!-- About Us with Dropdown -->
+                    <div class="relative dropdown py-4">
+                        <a href="#about" class="text-slate-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1">
+                            About Us <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu absolute top-full left-0 w-52 bg-white rounded-2xl shadow-xl border border-slate-100 py-3 opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50">
+                            <a href="#about" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 font-medium">About Organization</a>
+                            <a href="#documents" class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 font-medium">Documents</a>
+                        </div>
+                    </div>
+
                     <a href="#initiatives" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Our Initiatives</a>
                     <a href="#impact" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Why We Serve</a>
                     <a href="#gallery" class="text-slate-700 hover:text-blue-600 font-medium transition-colors">Gallery</a>
@@ -115,9 +132,10 @@
         </div>
 
         <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
             <a href="#home" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Home</a>
-            <a href="#about" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">About Us</a>
+            <a href="#about" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">About Organization</a>
+            <a href="#documents" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Documents</a>
             <a href="#initiatives" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Our Initiatives</a>
             <a href="#impact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Why We Serve</a>
             <a href="#gallery" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Gallery</a>
@@ -447,62 +465,59 @@
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SUPPORT TYPE</label>
                         <select name="support_type" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
-                            <option value="Financial">Financial Support</option>
-                            <option value="In-Kind Rations">In-Kind Rations & Supplies</option>
-                            <option value="Volunteer">Volunteer With Us</option>
+                            <option value="Financial Contribution">Financial Contribution</option>
+                            <option value="Volunteer Support">Volunteer Support</option>
+                            <option value="Material / Supplies Donation">Material / Supplies Donation</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">
-                        Submit Pledge / Request Contact
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold rounded-xl shadow-lg hover:opacity-95 transition-all text-sm uppercase tracking-wider">
+                        Submit Support Pledge
                     </button>
                 </form>
             </div>
-
         </div>
     </section>
 
-    <!-- Why We Serve / Impact Section -->
-    <section id="impact" class="py-20 bg-white">
+    <!-- Documents Section -->
+    <section id="documents" class="py-20 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Why We Serve</span>
-                    <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mt-2 mb-6">Restoring Hope & Dignity to Everyday Lives</h2>
-                    <p class="text-slate-600 leading-relaxed mb-6">
-                        In many healthcare emergencies and underprivileged households, access to basic nutrition and daily care resources is severely lacking. Our mission ensures that no patient suffers without nourishment and no bedridden senior is forgotten.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 mt-0.5">
-                                <i class="fa-solid fa-check text-xs"></i>
-                            </div>
-                            <span class="text-slate-700 text-sm font-medium">Direct ration assistance for cancer patients undergoing intensive therapy.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 mt-0.5">
-                                <i class="fa-solid fa-check text-xs"></i>
-                            </div>
-                            <span class="text-slate-700 text-sm font-medium">Comfort, hygiene, and eldercare kits for bedridden seniors.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 mt-0.5">
-                                <i class="fa-solid fa-check text-xs"></i>
-                            </div>
-                            <span class="text-slate-700 text-sm font-medium">Educational support so single mothers can secure schooling for their children.</span>
-                        </li>
-                    </ul>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Transparency & Compliance</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mt-2">Official Foundation Documents</h2>
+                <p class="text-slate-600 mt-3 text-base sm:text-lg">Review our official registration, incorporation, and legal compliance credentials.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Document Card 1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-file-shield"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800 mb-2">Certificate of Incorporation</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Section 8 Company Registration under Ministry of Corporate Affairs (CIN: U88900MH2026NPL476877).</p>
+                    </div>
+                    <div>
+                        <a href="docs/incorporation-certificate.pdf" target="_blank" class="inline-flex items-center justify-center w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+                            <i class="fa-solid fa-eye mr-2"></i> View Document
+                        </a>
+                    </div>
                 </div>
 
-                <div class="bg-gradient-to-tr from-blue-600 to-teal-500 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
-                    <div class="relative z-10 space-y-6">
-                        <h3 class="font-heading font-bold text-2xl sm:text-3xl">Make an Impact Today</h3>
-                        <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
-                            Your support brings life-saving aid and immediate relief to families facing financial and medical hardships. Join us in making care accessible for all.
-                        </p>
-                        <button onclick="openDonateModal()" class="bg-white text-blue-700 font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-blue-50 transition-all">
-                            Support Our Cause
-                        </button>
+                <!-- Document Card 2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-800 mb-2">PAN & Tax Compliance</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Official Permanent Account Number and tax exemption regulatory compliance records.</p>
+                    </div>
+                    <div>
+                        <a href="docs/pan-card.pdf" target="_blank" class="inline-flex items-center justify-center w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm">
+                            <i class="fa-solid fa-eye mr-2"></i> View Document
+                        </a>
                     </div>
                 </div>
             </div>
@@ -510,7 +525,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-slate-50 border-t border-slate-200">
+    <section id="gallery" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Our Work In Action</span>
@@ -518,38 +533,28 @@
                 <p class="text-slate-600 mt-3 text-base sm:text-lg">Photos and videos documenting our healthcare, senior care, and food distribution drives.</p>
             </div>
 
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- YouTube Video Embed Card -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white aspect-video border border-slate-100 flex items-center justify-center">
-                    <iframe class="w-full h-full rounded-2xl" src="https://www.youtube.com/embed/QCRCnBlUkjU?si=nZNbfIIRDbb9o9kB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-
-                <!-- Photo Card 1 -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white aspect-video border border-slate-100">
-                    <img src="gallery-1.jpg" alt="Foundation Activity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/1e40af/ffffff?text=Food+Relief+Drive'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
-                        <p class="font-bold text-sm">Food Relief Drive</p>
-                        <p class="text-xs text-slate-200">Hospital & Street Food Support</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="relative group overflow-hidden rounded-2xl card-shadow bg-white border border-slate-100">
+                    <img src="gallery-1.jpg" alt="Food Relief Drive" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent flex flex-col justify-end p-6 text-white">
+                        <h4 class="font-heading font-bold text-xl">Food Relief Drive</h4>
+                        <p class="text-slate-200 text-sm mt-1">Hospital & Street Food Support</p>
                     </div>
                 </div>
 
-                <!-- Photo Card 2 -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white aspect-video border border-slate-100">
-                    <img src="gallery-2.jpg" alt="Foundation Activity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/0d9488/ffffff?text=Senior+Care+Kits'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
-                        <p class="font-bold text-sm">Senior Care Kit Distribution</p>
-                        <p class="text-xs text-slate-200">Eldercare & Medical Relief</p>
+                <div class="relative group overflow-hidden rounded-2xl card-shadow bg-white border border-slate-100">
+                    <img src="gallery-2.jpg" alt="Senior Care Kit Distribution" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent flex flex-col justify-end p-6 text-white">
+                        <h4 class="font-heading font-bold text-xl">Senior Care Kit Distribution</h4>
+                        <p class="text-slate-200 text-sm mt-1">Eldercare & Medical Relief</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Contact & Location Section -->
-    <section id="contact" class="py-20 bg-white border-t border-slate-200">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-blue-600 font-semibold tracking-wider text-sm uppercase">Get In Touch</span>
@@ -557,78 +562,77 @@
                 <p class="text-slate-600 mt-3 text-base sm:text-lg">Have questions or want to partner with us? Reach out directly.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Contact Details -->
-                <div class="space-y-6">
-
-                    <!-- Direct WhatsApp Chat Card -->
-                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-200 shadow-sm flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-2xl shrink-0">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-base">WhatsApp Support</h4>
-                                <p class="text-slate-600 font-medium text-xs sm:text-sm">Instant Chat & Inquiries</p>
-                            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Left: Contact Details Cards -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
                         </div>
-                        <a href="https://wa.me/919890855582?text=Hello%20First%20Choice%20Foundation,%20I%20would%20like%20to%20inquire%20about%20help/support." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-sm flex items-center gap-2 shrink-0">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Chat Now
-                        </a>
+                        <div>
+                            <h4 class="font-heading font-bold text-slate-800 text-lg">WhatsApp Support</h4>
+                            <p class="text-slate-500 text-xs mb-3">Instant Chat & Inquiries</p>
+                            <a href="https://wa.me/919890855582?text=Hello%20First%20Choice%20Foundation,%20I%20would%20like%20to%20inquire%20about%20help/support." target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700">
+                                Chat Now <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl shrink-0">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-900 text-base">Official Email</h4>
-                            <a href="mailto:firstchoicehcservices25@gmail.com" class="text-blue-600 font-medium text-sm hover:underline">firstchoicehcservices25@gmail.com</a>
+                            <h4 class="font-heading font-bold text-slate-800 text-lg">Official Email</h4>
+                            <p class="text-slate-500 text-xs mb-1">For official correspondence</p>
+                            <a href="mailto:firstchoicehcservices25@gmail.com" class="text-sm font-semibold text-blue-600 hover:underline">firstchoicehcservices25@gmail.com</a>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl shrink-0">
-                            <i class="fa-solid fa-phone"></i>
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-phone-volume"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-900 text-base">Helpline / Contact</h4>
-                            <p class="text-slate-600 font-medium text-sm">+91 9890855582</p>
+                            <h4 class="font-heading font-bold text-slate-800 text-lg">Helpline / Contact</h4>
+                            <p class="text-slate-500 text-xs mb-1">Direct phone support</p>
+                            <span class="text-sm font-semibold text-slate-700">+91 9890855582</span>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl shrink-0">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-900 text-base">Office Address</h4>
-                            <p class="text-slate-600 font-medium text-sm">Row House No. 18, Mhada Colony, Jetwan, Ambernath East, Thane - 421501, Maharashtra</p>
+                            <h4 class="font-heading font-bold text-slate-800 text-lg">Office Address</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mt-1">Row House No. 18, Mhada Colony, Jetwan, Ambernath East, Thane - 421501, Maharashtra</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl">
-                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-4">Send Us a Direct Message</h3>
-                    <form action="https://formspree.io/f/xyeebdpw" method="POST" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
-                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50" placeholder="Full Name">
+                <!-- Right: Interactive Contact Form -->
+                <div class="lg:col-span-7 bg-slate-50 p-8 rounded-3xl border border-slate-100 card-shadow">
+                    <h3 class="font-heading font-bold text-2xl text-slate-900 mb-6">Send Us a Direct Message</h3>
+                    
+                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Your Name</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm bg-white" placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Your Email / Phone</label>
+                                <input type="text" name="email_or_phone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm bg-white" placeholder="Email or mobile number">
+                            </div>
                         </div>
+
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
-                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50" placeholder="Phone / Mobile">
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Your Message</label>
+                            <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm bg-white resize-none" placeholder="How can we help you or how would you like to partner?"></textarea>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email ID (Optional)</label>
-                            <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50" placeholder="your.email@domain.com (optional)">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Message</label>
-                            <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-slate-50" placeholder="How can we help you?"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">
+
+                        <button type="submit" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all text-center">
                             Send Message
                         </button>
                     </form>
@@ -638,45 +642,84 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-            <div class="flex justify-center items-center gap-3">
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center gap-3">
                 <img src="logo.png" alt="First Choice Logo" class="h-10 w-auto object-contain">
-                <span class="font-heading font-extrabold text-xl tracking-tight">FIRST CHOICE</span>
+                <span class="font-heading font-extrabold text-xl text-white tracking-tight">FIRST CHOICE</span>
             </div>
-            <p class="text-slate-300 text-sm font-medium">Healthcare Services Foundation</p>
-            <p class="text-slate-400 text-xs tracking-wider">CIN: U88900MH2026NPL476877</p>
-            <p class="text-slate-500 text-xs pt-2">&copy; 2026 First Choice Healthcare Services Foundation. All rights reserved.</p>
+            <p class="text-sm font-medium text-slate-300">Healthcare Services Foundation</p>
+            <p class="text-xs text-slate-400 tracking-wider font-semibold">CIN: U88900MH2026NPL476877</p>
+            <p class="text-xs text-slate-400 pt-4 border-t border-slate-800">© 2026 First Choice Healthcare Services Foundation. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Interactive JavaScript Modals -->
+    <!-- Simple Modals for Donate / Support Actions -->
+    <div id="support-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModals()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 mx-auto rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-3">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 id="modal-title" class="font-heading font-bold text-2xl text-slate-900">Support Foundation</h3>
+                <p class="text-slate-500 text-xs mt-1">First Choice Healthcare Services Foundation</p>
+            </div>
+            
+            <form action="https://formspree.io/f/xyeebdpw" method="POST" class="space-y-4">
+                <input type="hidden" id="modal-initiative-input" name="initiative" value="General Support">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm" placeholder="Full Name">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
+                    <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm" placeholder="Mobile Number">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Contribution / Message</label>
+                    <textarea name="message" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm resize-none" placeholder="I would like to support..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-teal-500 text-white font-semibold rounded-xl shadow-lg hover:opacity-95 transition-opacity">
+                    Submit Support Pledge
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        const menuBtn = document.getElementById('mobile-menu-btn');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
 
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Controls
         function openDonateModal() {
-            const selectElem = document.querySelector('select[name="initiative"]');
-            if (selectElem) {
-                selectElem.scrollIntoView({ behavior: 'smooth' });
-                selectElem.focus();
-            }
+            document.getElementById('modal-title').innerText = "Support Foundation Mission";
+            document.getElementById('modal-initiative-input').value = "General Foundation Support";
+            document.getElementById('support-modal').classList.remove('hidden');
         }
 
-        function openSupportModal(causeName) {
-            const selectElem = document.querySelector('select[name="initiative"]');
-            if (selectElem) {
-                selectElem.scrollIntoView({ behavior: 'smooth' });
-                Array.from(selectElem.options).forEach(opt => {
-                    if (opt.text.toLowerCase().includes(causeName.toLowerCase().split(' ')[0])) {
-                        opt.selected = true;
-                    }
-                });
+        function openSupportModal(initiativeName) {
+            document.getElementById('modal-title').innerText = "Support: " + initiativeName;
+            document.getElementById('modal-initiative-input').value = initiativeName;
+            document.getElementById('support-modal').classList.remove('hidden');
+        }
+
+        function closeModals() {
+            document.getElementById('support-modal').classList.add('hidden');
+        }
+
+        // Close modal on background click
+        window.onclick = function(event) {
+            const modal = document.getElementById('support-modal');
+            if (event.target == modal) {
+                closeModals();
             }
         }
     </script>
