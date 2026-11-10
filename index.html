@@ -524,7 +524,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section (Photos & YouTube Videos) -->
+    <!-- Gallery Section (Photos & YouTube Videos from FC HEALTHCARE SERVICES) -->
     <section id="gallery" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -533,8 +533,8 @@
                 <p class="text-slate-600 mt-3 text-base sm:text-lg">Photos and videos documenting our healthcare, senior care, and food distribution drives.</p>
             </div>
 
-            <!-- Gallery Grid with Images & YouTube Video Support -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Gallery Grid with Images & YouTube Videos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 
                 <!-- Gallery Item 1: Photo -->
                 <div class="relative group overflow-hidden rounded-2xl card-shadow bg-white border border-slate-100">
@@ -554,25 +554,26 @@
                     </div>
                 </div>
 
-                <!-- Gallery Item 3: Embedded YouTube Video -->
+                <!-- Gallery Item 3: YouTube Video 1 -->
                 <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col">
                     <div class="relative w-full h-72 bg-slate-900">
-                        <!-- Replace YOUR_VIDEO_ID with your actual YouTube video ID -->
-                        <iframe class="w-full h-full border-0" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Foundation Drive Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full border-0" src="https://www.youtube.com/embed/HywMaf4QDpnnUkJ3" title="FC Healthcare Services Drive 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-6 bg-white">
-                        <h4 class="font-heading font-bold text-xl text-slate-900">Foundation Video Drive</h4>
-                        <p class="text-slate-600 text-sm mt-1">Watch highlights from our community support initiatives.</p>
+                        <h4 class="font-heading font-bold text-xl text-slate-900">FC Healthcare Services Drive</h4>
+                        <p class="text-slate-600 text-sm mt-1">Community care initiatives and support in Ambernath.</p>
                     </div>
                 </div>
 
-                <!-- Gallery Item 4: Placeholder / More Info Card -->
-                <div class="relative group overflow-hidden rounded-2xl card-shadow bg-white border border-slate-100 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-br from-blue-50 to-teal-50">
-                    <div class="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl mb-4 shadow-md">
-                        <i class="fa-solid fa-video"></i>
+                <!-- Gallery Item 4: YouTube Video 2 (Add more video IDs from your channel here as needed) -->
+                <div class="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-100 flex flex-col">
+                    <div class="relative w-full h-72 bg-slate-900">
+                        <iframe class="w-full h-full border-0" src="https://www.youtube.com/embed/YOUR_SECOND_VIDEO_ID" title="FC Healthcare Services Drive 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <h4 class="font-heading font-bold text-xl text-slate-900 mb-2">More Drives Coming Soon</h4>
-                    <p class="text-slate-600 text-sm">Stay tuned for more photo and video updates as we expand our outreach across Ambernath.</p>
+                    <div class="p-6 bg-white">
+                        <h4 class="font-heading font-bold text-xl text-slate-900">Foundation Service Highlights</h4>
+                        <p class="text-slate-600 text-sm mt-1">Watch our senior care and medical aid distribution programs.</p>
+                    </div>
                 </div>
 
             </div>
@@ -765,7 +766,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Dropdown Click Handler for robust behavior (both hover & click)
+        // Dropdown Click Handler for robust behavior
         const dropdownBtn = document.getElementById('dropdown-btn');
         const dropdownMenu = document.getElementById('dropdown-menu');
 
@@ -774,14 +775,12 @@
             dropdownMenu.classList.toggle('hidden');
         });
 
-        // Close dropdown when clicking outside
         window.addEventListener('click', () => {
             if (!dropdownMenu.classList.contains('hidden')) {
                 dropdownMenu.classList.add('hidden');
             }
         });
 
-        // Modal Controls
         function openDonateModal() {
             document.getElementById('modal-title').innerText = "Support Foundation Mission";
             document.getElementById('modal-initiative-input').value = "General Foundation Support";
@@ -791,7 +790,6 @@
         function openSupportModal(initiativeName) {
             document.getElementById('modal-title').innerText = "Support: " + initiativeName;
             document.getElementById('modal-initiative-input').value = initiativeName;
-            document.getElementById('support-modal').classList.add('hidden'); // bug fix sync
             document.getElementById('support-modal').classList.remove('hidden');
         }
 
@@ -799,7 +797,6 @@
             document.getElementById('support-modal').classList.add('hidden');
         }
 
-        // Close modal on background click
         window.onclick = function(event) {
             const modal = document.getElementById('support-modal');
             if (event.target == modal) {
