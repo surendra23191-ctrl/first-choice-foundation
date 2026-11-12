@@ -353,7 +353,7 @@
         </div>
     </section>
 
-    <!-- Secure Document Modal Overlay with strict event blocking -->
+    <!-- Secure Document Modal Overlay with strict verification watermark -->
     <div id="secureModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-3xl w-full p-6 relative card-shadow border border-slate-200">
             <div class="flex justify-between items-center pb-4 border-b border-slate-100">
@@ -365,9 +365,12 @@
             
             <div class="py-6 flex justify-center items-center overflow-hidden relative select-none" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
                 <img id="modalImage" src="" alt="Official Foundation Document" class="max-h-[70vh] w-auto object-contain rounded-xl shadow-lg secure-view" oncontextmenu="return false;" ondragstart="return false;" />
+                
                 <!-- Watermark Overlay -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15 rotate-[-30deg]">
-                    <span class="text-xl sm:text-3xl font-extrabold tracking-widest text-slate-900 uppercase">FOR FIRST CHOICE FOUNDATION ONLY</span>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20 rotate-[-30deg] text-center px-4">
+                    <span class="text-lg sm:text-2xl font-extrabold tracking-widest text-slate-900 uppercase">
+                        FOR FIRST CHOICE FOUNDATION VERIFICATION ONLY
+                    </span>
                 </div>
             </div>
 
@@ -731,9 +734,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-8 border-b border-slate-800">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xl">
-                        <i class="fa-solid fa-heart text-rose-300"></i>
-                    </div>
+                    <img src="logo.png" alt="First Choice Logo" class="h-10 w-auto object-contain">
                     <div>
                         <span class="block font-heading font-bold text-white text-lg">FIRST CHOICE</span>
                         <span class="block text-xs text-slate-400">Healthcare Services Foundation</span>
