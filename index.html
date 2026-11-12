@@ -57,9 +57,12 @@
         .card-shadow:hover {
             box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
         }
-        /* Secure modal image protection */
+        /* Strict image protection */
         .secure-view {
             -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
             user-select: none;
             pointer-events: none;
         }
@@ -350,26 +353,26 @@
         </div>
     </section>
 
-    <!-- Secure Document Modal Overlay -->
+    <!-- Secure Document Modal Overlay with strict event blocking -->
     <div id="secureModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-3xl w-full p-6 relative card-shadow border border-slate-200">
             <div class="flex justify-between items-center pb-4 border-b border-slate-100">
                 <h3 id="modalTitle" class="font-heading font-bold text-lg text-slate-900">Secure Document View</h3>
-                <button onclick="closeSecureModal()" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-lg transition-colors">
+                <button onclick="closeSecureModal()" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-lg transition-colors cursor-pointer">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             
-            <div class="py-6 flex justify-center items-center overflow-hidden relative select-none" oncontextmenu="return false;">
-                <img id="modalImage" src="" alt="Official Foundation Document" class="max-h-[70vh] w-auto object-contain rounded-xl shadow-lg secure-view">
-                <!-- Watermark Overlay to discourage screenshots/copying -->
+            <div class="py-6 flex justify-center items-center overflow-hidden relative select-none" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
+                <img id="modalImage" src="" alt="Official Foundation Document" class="max-h-[70vh] w-auto object-contain rounded-xl shadow-lg secure-view" oncontextmenu="return false;" ondragstart="return false;" />
+                <!-- Watermark Overlay -->
                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15 rotate-[-30deg]">
-                    <span class="text-2xl sm:text-4xl font-extrabold tracking-widest text-slate-900 uppercase">FOR FIRST CHOICE FOUNDATION ONLY</span>
+                    <span class="text-xl sm:text-3xl font-extrabold tracking-widest text-slate-900 uppercase">FOR FIRST CHOICE FOUNDATION ONLY</span>
                 </div>
             </div>
 
             <div class="pt-4 border-t border-slate-100 text-center">
-                <p class="text-xs text-slate-500">🔒 This document is protected against unauthorized downloading and right-click saving.</p>
+                <p class="text-xs text-slate-500">🔒 Right-click saving, dragging, and downloading are disabled for document protection.</p>
             </div>
         </div>
     </div>
@@ -752,7 +755,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Secure Modal & Navigation -->
+    <!-- JavaScript for Secure Modal & Strict Right-Click Block -->
     <script>
         const beaconInitiative = document.getElementById('beaconInitiative');
 
@@ -789,8 +792,9 @@
             }
         });
 
-        // Disable right-click globally
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        // Strict global right-click & drag prevention
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
 
         // Mobile menu toggle & smooth closing
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
