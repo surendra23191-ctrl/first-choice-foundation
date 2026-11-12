@@ -117,9 +117,9 @@
 
                 <!-- Actions -->
                 <div class="hidden sm:flex items-center gap-3">
-                    <a href="#beacon-form" class="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <button onclick="openDonateModal()" class="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
                         <i class="fa-solid fa-heart text-rose-300"></i> Donate / Support
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -140,9 +140,9 @@
             <a href="#impact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Why We Serve</a>
             <a href="#gallery" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Gallery</a>
             <a href="#contact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Contact</a>
-            <a href="#beacon-form" class="block text-center w-full mt-2 bg-blue-600 text-white font-semibold py-3 rounded-xl shadow">
+            <button onclick="openDonateModal()" class="w-full mt-2 bg-blue-600 text-white font-semibold py-3 rounded-xl shadow">
                 <i class="fa-solid fa-heart text-rose-300"></i> Donate / Support Now
-            </a>
+            </button>
         </div>
     </header>
 
@@ -190,9 +190,9 @@
                         <a href="#initiatives" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition-all text-center">
                             Explore Our Initiatives
                         </a>
-                        <a href="#beacon-form" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-blue-700 font-semibold px-8 py-3.5 rounded-xl border border-blue-200 shadow-sm transition-all text-center flex items-center justify-center gap-2">
+                        <button onclick="openDonateModal()" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-blue-700 font-semibold px-8 py-3.5 rounded-xl border border-blue-200 shadow-sm transition-all text-center flex items-center justify-center gap-2">
                             <i class="fa-solid fa-heart text-rose-500"></i> Make a Difference Today
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -377,9 +377,9 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a href="#beacon-form" onclick="selectInitiative('Cancer Patients Ration & Care')" class="block text-center w-full py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold rounded-xl text-sm transition-colors border border-rose-200">
+                        <button onclick="openDonateModalWithInitiative('Cancer Patients Ration & Care')" class="w-full py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold rounded-xl text-sm transition-colors border border-rose-200">
                             Support Patient Kits
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -405,9 +405,9 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a href="#beacon-form" onclick="selectInitiative('Bedridden Senior Care Kits')" class="block text-center w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold rounded-xl text-sm transition-colors border border-emerald-200">
+                        <button onclick="openDonateModalWithInitiative('Bedridden Senior Care Kits')" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold rounded-xl text-sm transition-colors border border-emerald-200">
                             Support Senior Kits
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -433,9 +433,9 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a href="#beacon-form" onclick="selectInitiative('Child Education & Stationery')" class="block text-center w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold rounded-xl text-sm transition-colors border border-blue-200">
+                        <button onclick="openDonateModalWithInitiative('Child Education & Stationery')" class="w-full py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold rounded-xl text-sm transition-colors border border-blue-200">
                             Support Child Schooling
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -461,71 +461,12 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <a href="#beacon-form" onclick="selectInitiative('Food Support - Hospital Patients & Homeless')" class="block text-center w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-700 font-semibold rounded-xl text-sm transition-colors border border-amber-200">
+                        <button onclick="openDonateModalWithInitiative('Food Support - Hospital Patients & Homeless')" class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 text-amber-700 font-semibold rounded-xl text-sm transition-colors border border-amber-200">
                             Support Food Relief
-                        </a>
+                        </button>
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Fast Donation / Action Form (Be a Beacon of Hope Section) -->
-            <div id="beacon-form" class="mt-16 max-w-xl mx-auto bg-white text-slate-800 p-8 rounded-3xl shadow-2xl border border-slate-100 scroll-mt-28">
-                <div class="text-center mb-6">
-                    <div class="w-12 h-12 mx-auto bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl mb-3 shadow-inner">
-                        <i class="fa-solid fa-heart text-rose-500"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-2xl text-slate-900">Be a Beacon of Hope</h3>
-                    <p class="text-sm text-slate-500 mt-1">Pledge your support today. Select an initiative to contribute.</p>
-                </div>
-
-                <form action="https://formspree.io/f/xyeebdpw" method="POST" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SELECT INITIATIVE</label>
-                        <select id="beaconInitiative" name="initiative" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
-                            <option value="Cancer Patients Ration & Care">Cancer Patients Ration & Care</option>
-                            <option value="Bedridden Senior Care Kits">Bedridden Senior Care Kits</option>
-                            <option value="Child Education & Stationery">Child Education & Stationery</option>
-                            <option value="Food Support - Hospital Patients & Homeless">Food Support - Hospital Patients & Homeless</option>
-                            <option value="General Support">General Support</option>
-                        </select>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">YOUR NAME</label>
-                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="Full Name">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">PHONE NUMBER</label>
-                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="Mobile Number">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">EMAIL ID (OPTIONAL)</label>
-                        <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="your.email@domain.com (optional)">
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SUPPORT TYPE</label>
-                            <select name="support_type" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
-                                <option value="Financial Contribution">Financial Contribution</option>
-                                <option value="Volunteer Support">Volunteer Support</option>
-                                <option value="In-Kind Supplies">In-Kind Supplies</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">CONTRIBUTION / MESSAGE</label>
-                            <input type="text" name="message" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="I would like to support...">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="w-full mt-2 bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white font-semibold py-3.5 rounded-xl shadow-lg transition-all text-center">
-                        SUBMIT SUPPORT PLEDGE
-                    </button>
-                </form>
             </div>
         </div>
     </section>
@@ -693,13 +634,96 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Initiative Selection & Mobile Navigation -->
-    <script>
-        const beaconInitiative = document.getElementById('beaconInitiative');
+    <!-- UNIFIED DONATION / SUPPORT MODAL (Combined & Streamlined) -->
+    <div id="donationModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative border border-slate-100 transform transition-all">
+            <!-- Close Button -->
+            <button onclick="closeDonateModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
 
-        function selectInitiative(initiativeName) {
-            if (beaconInitiative) {
-                beaconInitiative.value = initiativeName;
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 mx-auto bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-xl mb-3 shadow-inner">
+                    <i class="fa-solid fa-heart text-rose-500"></i>
+                </div>
+                <h3 class="font-heading font-bold text-2xl text-slate-900">Be a Beacon of Hope</h3>
+                <p class="text-sm text-slate-500 mt-1">Pledge your support today. Select an initiative to contribute.</p>
+            </div>
+
+            <form action="https://formspree.io/f/xyeebdpw" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SELECT INITIATIVE</label>
+                    <select id="modalInitiative" name="initiative" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
+                        <option value="Cancer Patients Ration & Care">Cancer Patients Ration & Care</option>
+                        <option value="Bedridden Senior Care Kits">Bedridden Senior Care Kits</option>
+                        <option value="Child Education & Stationery">Child Education & Stationery</option>
+                        <option value="Food Support - Hospital Patients & Homeless">Food Support - Hospital Patients & Homeless</option>
+                        <option value="General Support">General Support</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">YOUR NAME</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="Full Name">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">PHONE NUMBER</label>
+                        <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="Mobile Number">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">EMAIL ID (OPTIONAL)</label>
+                    <input type="email" name="email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="your.email@domain.com (optional)">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">SUPPORT TYPE</label>
+                        <select name="support_type" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white">
+                            <option value="Financial Contribution">Financial Contribution</option>
+                            <option value="Volunteer Support">Volunteer Support</option>
+                            <option value="In-Kind Supplies">In-Kind Supplies</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">CONTRIBUTION / MESSAGE</label>
+                        <input type="text" name="message" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-white" placeholder="I would like to support...">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full mt-2 bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white font-semibold py-3.5 rounded-xl shadow-lg transition-all text-center">
+                    SUBMIT SUPPORT PLEDGE
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modal & Smooth Navigation Control -->
+    <script>
+        const donationModal = document.getElementById('donationModal');
+        const modalInitiative = document.getElementById('modalInitiative');
+
+        function openDonateModal() {
+            donationModal.classList.remove('hidden');
+            donationModal.classList.add('flex');
+        }
+
+        function openDonateModalWithInitiative(initiativeName) {
+            modalInitiative.value = initiativeName;
+            openDonateModal();
+        }
+
+        function closeDonateModal() {
+            donationModal.classList.remove('flex');
+            donationModal.classList.add('hidden');
+        }
+
+        // Close when clicking outside
+        window.onclick = function(event) {
+            if (event.target == donationModal) {
+                closeDonateModal();
             }
         }
 
